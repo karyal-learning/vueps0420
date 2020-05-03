@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Karyal Learning Center (KLC)</title>
+	<link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+	<main class="w-50 mx-auto py-5">
+		<h1 class="mb-5">Karyal Learning Center (KLC)</h1>
+
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<a v-bind:class="{ 'nav-link': true, 'active': active == 0 }" href="#" v-on:click="active = 0">Not Enrolled</a>
+			</li>
+			<li class="nav-item">
+				<a v-bind:class="{ 'nav-link': true, 'active': active == 1 }" href="#" v-on:click="active = 1">Enrolled</a>
+			</li>
+		</ul>
+
+		<div class="p-5 bg-light">
+			<ul class="list-group" v-if="active == 0">
+				<li class="list-group-item d-flex justify-content-between" v-for="course in courses.filter(c => ! c.enrolled)">
+					<span>{{ course.title }}</span>
+					<button v-on:click="course.enrolled = true" class="btn btn-outline-success">Enroll</button>
+				</li>
+			</ul>
+
+			<ul class="list-group" v-if="active == 1">
+				<li class="list-group-item d-flex justify-content-between" v-for="course in courses.filter(c => c.enrolled)">
+					<span>{{ course.title }}</span>
+					<button v-on:click="course.enrolled = false" class="btn btn-outline-danger">Leave</button>
+				</li>
+			</ul>
+		</div>
+	</main>
+
+	<script src="vue.js"></script>
+	<script>
+		let app = new Vue({
+			el: 'main',
+			data: {
+				active: 0,
+				courses: [
+					{ title: 'HTML', enrolled: false },
+					{ title: 'CSS', enrolled: true },
+					{ title: 'JavaScript', enrolled: true },
+					{ title: 'Vue', enrolled: false },
+					{ title: 'Python', enrolled: true },
+					{ title: 'Laravel', enrolled: false },
+				]
+			}
+		});
+	</script>
+</body>
+</html>

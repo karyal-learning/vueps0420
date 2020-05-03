@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Prerequisites and Basics</title>
+</head>
+<body>
+	<div id="app">
+		<h1 v-bind:title="tooltip">{{ titleText }}</h1>
+
+		<ul v-bind:style="bg">
+			<li>1 Item</li>
+			<li>{{ secondItem }}</li>
+			<li>3 Item</li>
+		</ul>
+
+		<input type="text" v-model="titleText" placeholder="Type something...">
+
+		<button v-on:click="bg = 'background-color: red'">Action</button>
+	</div>
+
+	<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				secondItem: 'This is the value of second item',
+				tooltip: 'This value is comming from Vue',
+				bg: '',
+				titleText: 'Welcome to Vue!'
+			}
+		});
+
+		// Change element text
+		// let item = document.querySelector('li:nth-child(2)');
+		// let item = $('li:nth-child(2)');
+
+		// setTimeout(function () {
+		// 	// item.textContent = 'Updated by JS!';
+		// 	item.text('Updated by JS!');
+		// }, 1000);
+
+		// Set an attribute on an element
+		// let heading = document.querySelector('h1');
+		// let heading = $('h1');
+
+		// setTimeout(function () {
+		// 	// heading.setAttribute('title', 'Just for Test!');
+		// 	heading.attr('title', 'Set by jQuery!');
+		// }, 1000);
+
+		// Register and event handler for an element
+		// let button = document.querySelector('button');
+		// let button = $('button');
+
+		// button.on('click', function () {
+		// 	// $('ul').css('background-color', 'blue');
+		// 	$('ul').css({
+		// 		backgroundColor: 'red',
+		// 		fontSize: '22px'
+		// 	});
+		// });
+
+		// button.addEventListener('click', function () {
+		// 	document.querySelector('ul').style.backgroundColor = 'blue';
+		// });
+
+		// let heading = document.querySelector('h1');
+		// let userInput = document.querySelector('input');
+
+		// userInput.addEventListener('keyup', function () {
+		// 	heading.textContent = userInput.value;
+		// });
+
+		// let heading = $('h1');
+		// let userInput = $('input');
+
+		// userInput.on('keyup', function () {
+		// 	heading.text(userInput.val());
+		// });
+
+		// CDN: Content Delivery Network
+	</script>
+</body>
+</html>

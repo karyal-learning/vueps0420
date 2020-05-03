@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue Components</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>ټولي ليکني</h1>
+
+	<div id="app">
+		<post v-for="post in posts" v-bind:post="post"></post>
+	</div>
+
+	<script src="vue.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
